@@ -246,7 +246,7 @@ class Libmemcached extends AbstractAdapter
      */
     private function setOptions(<\Memcached> connection, array client) -> <Libmemcached>
     {
-        connection->setOptions(client)
+        connection->setOptions(client);
         return this;
     }
 
