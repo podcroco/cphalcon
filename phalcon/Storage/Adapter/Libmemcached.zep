@@ -243,16 +243,10 @@ class Libmemcached extends AbstractAdapter
      * @param array      $client
      *
      * @return Libmemcached
-     * @throws StorageException
      */
     private function setOptions(<\Memcached> connection, array client) -> <Libmemcached>
     {
-        if (true !== connection->setOptions(client)) {
-            throw new StorageException(
-                "Cannot set Memcached client options"
-            );
-        }
-
+        connection->setOptions(client)
         return this;
     }
 
