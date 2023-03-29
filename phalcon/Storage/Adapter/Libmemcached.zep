@@ -125,7 +125,6 @@ class Libmemcached extends AbstractAdapter
                 this
                     ->setOptions(connection, client)
                     ->setServers(connection, servers)
-                    ->setSasl(connection, saslUser, saslPass)
                 ;
             }
 
@@ -253,24 +252,6 @@ class Libmemcached extends AbstractAdapter
         return this;
     }
 
-    /**
-     * @param \Memcached $connection
-     * @param string     $saslUser
-     * @param string     $saslPass
-     *
-     * @return Libmemcached
-     */
-    private function setSasl(
-        <\Memcached> connection,
-        string saslUser,
-        string saslPass
-    ) -> <Libmemcached> {
-        if (true !== empty(saslUser)) {
-            connection->setSaslAuthData(saslUser, saslPass);
-        }
-
-        return this;
-    }
 
     /**
      * Checks the serializer. If it is a supported one it is set, otherwise
